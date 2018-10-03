@@ -23,7 +23,8 @@ lambdaRouter.setRoutes([
   {method: "POST", path: "hello/:message", func: testController.hello }, 
   {method: "GET", path: "test/setSession", func: sessionController.setSession},
   {method: "GET", path: "test/getSession", func: sessionController.getSession},
-  {method: "GET", path: "test/user_auth", func: userController.getUser, options: {authentication: lambdaRouter.auth.required}},
+  {method: "GET", path: "test/userAuth", func: userController.getUser, options: {authentication: lambdaRouter.auth.required}},
+  {method: "GET", path: "test/getUser", func: userController.getUser, options: {authentication: lambdaRouter.auth.getUser}},
 ]);
 
 lambdaRouter.setResponseHandlers({
