@@ -7,6 +7,6 @@
   "author": "isamu arimoto",
   "license": "MIT",
   "dependencies": {
-    "lambda-router": "github:isamu/lambda-router#master"
+    "lambda-router20": "0.0.1"
   }
 }

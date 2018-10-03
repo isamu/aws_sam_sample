@@ -1,4 +1,4 @@
-const lambdaRouter = require ("lambda-router");
+const lambdaRouter = require ("lambda-router20");
 
 const testController = require ("controllers/test")
 
