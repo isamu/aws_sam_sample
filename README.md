@@ -1,7 +1,9 @@
-# install sam
+# AWS SAM Sample app
+This repository is sample app for AWS SAM (Serverless Application Model).
+
+## install sam tool
 
 $ pip install -r requirements.txt
-
 
 ## run docker
 
@@ -10,7 +12,7 @@ $ docker-machine start default
 $ eval "$(docker-machine env default)"
 ```
 
-## install package
+## install npm package
 
 ```
 cd src
