@@ -96,17 +96,8 @@ Date: Wed, 03 Oct 2018 22:35:19 GMT
 
 ## user auth test
 
-```
-$ curl -i -H "Cookie: SID=%7B%22status%22%3A%22ok%22%7D.eTkTgF7CmPnvB9WX2f9JLba5qgXjVf969xI6KdXCVmY;" http://localhost:3000/1.0/test/user_auth
-HTTP/1.0 200 OK
-Content-Type: application/json
-Content-Length: 40
-Server: Werkzeug/0.14.1 Python/3.6.2
-Date: Wed, 03 Oct 2018 22:44:25 GMT
 
-{"user":{"id":1,"username":"test_user"}}
-```
-
+valid user
 
 ```
 $ curl -i -H "Cookie: SID=%7B%22status%22%3A%22ok%22%7D.eTkTgF7CmPnvB9WX2f9JLba5qgXjVf969xI6KdXCVmY;" http://localhost:3000/1.0/test/user_auth
@@ -117,4 +108,17 @@ Server: Werkzeug/0.14.1 Python/3.6.2
 Date: Wed, 03 Oct 2018 22:44:25 GMT
 
 {"user":{"id":1,"username":"test_user"}}
+```
+
+invalid user
+
+```
+$ curl -i http://localhost:3000/1.0/test/user_auth
+HTTP/1.0 401 UNAUTHORIZED
+Content-Type: application/json
+Content-Length: 23
+Server: Werkzeug/0.14.1 Python/3.6.2
+Date: Wed, 03 Oct 2018 22:44:54 GMT
+
+{"message":"401 error"} 
 ```
