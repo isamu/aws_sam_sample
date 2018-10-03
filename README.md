@@ -122,3 +122,14 @@ Date: Wed, 03 Oct 2018 22:44:54 GMT
 
 {"message":"401 error"} 
 ```
+
+
+## deployment
+
+```
+sam package --template-file template.yaml --output-template-file serverless-output.yaml --s3-bucket YOUR_DEPLOYMENT_BUCKET --region ap-northeast-1 --profile YOUR_AWS_PROFILE
+```
+
+```
+aws cloudformation deploy --template-file serverless-output.yaml --stack-name YOUR_CLOUDFORMATION_STACK --profile YOUR_AWS_PROFILE --region ap-northeast-1 --capabilities CAPABILITY_IAM 
+```
