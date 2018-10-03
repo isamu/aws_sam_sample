@@ -10,13 +10,18 @@ $ docker-machine start default
 $ eval "$(docker-machine env default)"
 ```
 
+## install package
+
+```
+cd src
+npm install
+```
+
 # run lambda + API gateway server
 
 ```
 $ sam local start-api
 ```
-
-
 
 ## test 
 ```
