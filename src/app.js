@@ -1,6 +1,9 @@
 const lambdaRouter = require ("lambda-router20");
 
 const testController = require ("controllers/test")
+const sessionController = require ("controllers/session")
+
+lambdaRouter.session.setSessionSecret("SET_SECRET_HERE");
 
 lambdaRouter.setInit((event, context) => {
   // some init function
@@ -9,6 +12,8 @@ lambdaRouter.setInit((event, context) => {
 lambdaRouter.setRoutes([
   {method: "GET", path: "test", func: testController.test},
   {method: "POST", path: "hello/:message", func: testController.hello }, 
+  {method: "GET", path: "test/setSession", func: sessionController.setSession},
+  {method: "GET", path: "test/getSession", func: sessionController.getSession},
 ]);
 
 lambdaRouter.setResponseHandlers({
