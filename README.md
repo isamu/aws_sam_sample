@@ -61,3 +61,60 @@ Date: Wed, 03 Oct 2018 18:57:29 GMT
 
 {"message":"404 error"}
 ```
+
+
+
+### session test
+
+
+set cookie
+
+```
+$ curl -i http://localhost:3000/1.0/test/setSession
+HTTP/1.0 200 OK
+Set-Cookie: SID=%7B%22status%22%3A%22ok%22%7D.eTkTgF7CmPnvB9WX2f9JLba5qgXjVf969xI6KdXCVmY; Path=/; Expires=Thu, 04 Oct 2018 07:20:09 GMT
+Content-Type: application/json
+Content-Length: 18
+Server: Werkzeug/0.14.1 Python/3.6.2
+Date: Wed, 03 Oct 2018 22:34:33 GMT
+
+{"message":"test"}
+```
+
+get cookie
+
+```
+$ curl -i -H "Cookie: SID=%7B%22status%22%3A%22ok%22%7D.eTkTgF7CmPnvB9WX2f9JLba5qgXjVf969xI6KdXCVmY;" http://localhost:3000/1.0/test/getSession
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 27
+Server: Werkzeug/0.14.1 Python/3.6.2
+Date: Wed, 03 Oct 2018 22:35:19 GMT
+
+{"session":{"status":"ok"}} 
+```
+
+## user auth test
+
+```
+$ curl -i -H "Cookie: SID=%7B%22status%22%3A%22ok%22%7D.eTkTgF7CmPnvB9WX2f9JLba5qgXjVf969xI6KdXCVmY;" http://localhost:3000/1.0/test/user_auth
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 40
+Server: Werkzeug/0.14.1 Python/3.6.2
+Date: Wed, 03 Oct 2018 22:44:25 GMT
+
+{"user":{"id":1,"username":"test_user"}}
+```
+
+
+```
+$ curl -i -H "Cookie: SID=%7B%22status%22%3A%22ok%22%7D.eTkTgF7CmPnvB9WX2f9JLba5qgXjVf969xI6KdXCVmY;" http://localhost:3000/1.0/test/user_auth
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 40
+Server: Werkzeug/0.14.1 Python/3.6.2
+Date: Wed, 03 Oct 2018 22:44:25 GMT
+
+{"user":{"id":1,"username":"test_user"}}
+```
